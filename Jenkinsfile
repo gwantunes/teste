@@ -1,21 +1,24 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+        step('Atualizar tabelas') {
+            echo "executando RECALCULAR_TASY_VERSION_TRACK3..."
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+        step('Rodando script de clientes ativos') {
+            echo "rodando script..."
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+        step('Exportanto resultado'){
+            echo "exportando resultado e gerando .xlsx"
+        }
+        step('Rodando script de todos os clientes') {
+            echo "rodando script..."
+        }
+        step('Exportanto resultado'){
+            echo "exportando resultado e gerando .xlsx"
+        }
+        step('Ajustando arquivo excel') {
+            echo "ajustando arquivo excel..."
         }
     }
 }
