@@ -9,7 +9,12 @@ pipeline {
         }
         stage('Clientes ativos') {
             steps {
-                echo "rodando script..."
+                echo "rodando script de clientes ativos..."
+                dir ('sql') {
+                    withCredentials([usernamePassword(credentialsId: 'ce552b44-30df-4e04-a3f7-aa2be6db2c9d', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASS')]) {
+                        sh "sqlplus -s ${DB_USER}/${DB_PASS}@//srv-db-phdev.whebdc.com.br:1521/phdev @clientes_ativos.sql"
+                    }
+                }
             }
         }
         stage('Exportar clientes ativos') {
