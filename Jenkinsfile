@@ -2,23 +2,35 @@ pipeline {
     agent any
     
     stages {
-        steps('Atualizar tabelas') {
-            echo "executando RECALCULAR_TASY_VERSION_TRACK3..."
+        stage('Atualizar tabelas') {
+            steps {
+                echo "executando RECALCULAR_TASY_VERSION_TRACK3..."
+            }
         }
-        steps('Rodando script de clientes ativos') {
-            echo "rodando script..."
+        stage('Clientes ativos') {
+            steps {
+                echo "rodando script..."
+            }
         }
-        steps('Exportanto resultado'){
-            echo "exportando resultado e gerando .xlsx"
+        stage('Exportar clientes ativos') {
+            steps {
+                echo "exportando resultado e gerando .xlsx"
+            }
         }
-        steps('Rodando script de todos os clientes') {
-            echo "rodando script..."
+        stage('Todos os clientes') {
+            steps {
+                echo "rodando script..."
+            }
         }
-        steps('Exportanto resultado'){
-            echo "exportando resultado e gerando .xlsx"
+        stage('Exportar todos os clientes') {
+            steps {
+                echo "exportando resultado e gerando .xlsx"
+            }
         }
-        steps('Ajustando arquivo excel') {
-            echo "ajustando arquivo excel..."
+        stage('Ajustar Excel') {
+            steps {
+                echo "ajustando arquivo excel..."
+            }
         }
     }
 }
